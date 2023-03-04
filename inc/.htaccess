@@ -1,0 +1,7 @@
+SetEnvIf Request_URI "\.php$" PHP
+
+<Files "DB.json">
+    Order Allow,Deny
+    Allow from env=PHP
+    deny from all
+</Files>
