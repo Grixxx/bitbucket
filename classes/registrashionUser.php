@@ -36,7 +36,7 @@ class SignUpContr {
 
     }
     public function validatePassword($password){
-        if (!ctype_alnum($password) || strlen($password) < 6 || $password === '') {
+        if (!preg_match('/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]+$/',$password) || strlen($password) < 6 || $password === '') {
             $this -> error_fields[] = 'password';
             $this -> message_fields[] = 'Введите пароль на английском не менее 6 символов без пробелов (можно использовать цифры)';
 
